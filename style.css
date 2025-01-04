@@ -1,0 +1,151 @@
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 10px;
+    font-family: 'Rubik';
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: #F5F9FF;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 4.0rem;
+    margin: 0 0 1.6rem;
+    color:  #11175E ;
+}
+
+main {
+    width: 100%;
+    max-width: 70rem;
+    padding: 3.2rem 2.4rem;
+    background-color: #fff;
+    border-radius: .8rem;
+}
+
+#create-to-do-section {
+    width: 100%;
+}
+
+#create-to-do-form {
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    width: 100%;
+}
+
+.input-create-task {
+    height: 4.6rem;
+    width: 40%;
+    font-size: 1.6rem;
+    border-radius: .4rem;
+    margin-right: .4rem;
+    outline: 0;
+    border: 1px solid #EEEEEE;
+    padding-left: .8rem;
+
+    &:focus {
+        border: 1px solid #5eb7f6;
+    }
+}
+
+.add-task-btn {
+    box-sizing: border-box;
+    height: 4.8rem;
+    width: 4.8rem;
+    color: #fff;
+    background-color: #2D70FD;
+    border: none;
+    border-radius: .4rem;
+    font-size: 2.4rem;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .8;
+    }
+}
+
+/* .board-task-list-section{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2.6rem;
+    background-color: green;
+} */
+
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+} 
+
+.card-task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #EEEEEE;
+    border-radius: 0.8rem;
+    width: 100%;
+    padding: 16px;
+}
+
+.title-task{ 
+color: #001747;
+font-size: 1.6rem;
+}
+
+.info-task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.etiqueta-task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #B1BACB;
+    border-radius: .8rem;
+    font-size: 1.2rem;
+    color: #B1BACB;
+    padding: 8px;
+}
+
+.data-task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #B1BACB;
+}
+
+.left-card-task{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: .5rem;
+    background-color: rebeccapurple;
+}
+
+.btn-task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 4.8rem;
+    width: 12.8rem;
+    background: #2D70FD;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 0.8rem;
+    font-size: 2.0rem;
+}
