@@ -23,13 +23,15 @@ function createTask(){
     dataTask.classList.add("date-task");
     dataTask.innerHTML = data;
 
-    const btnConcluir = document.createElement("button");
-    btnConcluir.classList.add("btn-concluir");
-    btnConcluir.innerHTML = "Concluir";
-
     const li = document.createElement("li");
     li.classList.add("card-task");
 
+    const btnConcluir = document.createElement("button");
+    btnConcluir.addEventListener("click", concluirTask);
+    btnConcluir.type = "button";
+    btnConcluir.classList.add("btn-concluir");
+    btnConcluir.innerHTML = "Concluir";
+    
     const ul = document.getElementById("list-task");
     ul.appendChild(li);
     li.appendChild(titleTask);
@@ -37,4 +39,41 @@ function createTask(){
     li.appendChild(dataTask);
     li.appendChild(btnConcluir);
 }
+
+// function concluirTask(){
+// alert("Tarefa concluída com sucesso!");
+
+// const btnConcluir = document.getElementsByClassName("btn-concluir");
+// const titleTask = document.getElementsByClassName("title-task");
+
+//     console.log(btnConcluir, titleTask);
+
+//     titleTask.classList.add("title-concluido");
+
+//     btnConcluir.style.display = "none";
+// }
+
+function concluirTask(event) {
+    alert("Tarefa concluída com sucesso!");
+
+    // Obter o botão que disparou o evento
+    const btnConcluir = event.target;
+
+    // Obter o elemento da tarefa (li) que contém o botão
+    const cardTask = btnConcluir.parentElement;
+
+    // Substituir o botão por um emote
+    const emote = document.createElement("span");
+    emote.classList.add("emote-concluido");
+    emote.innerHTML = "✅"; // Substitua pelo emote que você tem salvo
+
+    // Remover o botão e adicionar o emote
+    cardTask.removeChild(btnConcluir);
+    cardTask.appendChild(emote);
+
+    // Adicionar a classe de estilo ao título da tarefa
+    const titleTask = cardTask.querySelector(".title-task");
+    titleTask.classList.add("title-concluido");
+}
+
 
