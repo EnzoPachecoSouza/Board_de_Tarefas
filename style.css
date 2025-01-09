@@ -149,3 +149,13 @@ font-size: 1.6rem;
     border-radius: 0.8rem;
     font-size: 2.0rem;
 }
+
+.title-concluido {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.emote-concluido {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
