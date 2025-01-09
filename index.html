@@ -25,30 +25,13 @@
                 <input type="text" id="etiqueta" name="etiqueta" class="input-create-task" aria-label="Etiqueta"
                     placeholder="Etiqueta">
 
-                <button type="submit" aria-label="Criar tarefa" class="add-task-btn">+</button>
+                <button type="submit" onclick="createTask()" aria-label="Criar tarefa" class="add-task-btn">+</button>
             </form>
         </section>
 
 
-        <ul id="board-task-list">
-            <li class="card-task">
-                <div class="left-card-task">
-                    <h5 class="title-task">Título</h5>
-
-                    <div class="info-task">
-                        <div class="etiqueta-task">
-                            Front-end
-                        </div>
-
-                        <div class="data-task">
-                            10/10/2010
-                        </div>
-                    </div>
-
-                </div>
-
-                <button class="btn-task">Concluir</button>
-            </li>
+        <ul id="list-task">
+           
         </ul>
 
     </main>
