@@ -1,3 +1,20 @@
+const tasks = [
+    { nome: "Criar tela de Login", etiqueta: "Front-end", data: "Criado em: 21/08/2024" },
+    { nome: "Criar tela de Cadastro", etiqueta: "Front-end", data: "Criado em: 21/08/2024" },
+    { nome: "Criar Banco de Dados", etiqueta: "Back-end", data: "Criado em: 21/08/2024" },
+]
+
+function gravarDadosLocalStorage(taskObj) {
+    let tasksSalves = JSON.parse(localStorage.getItem("tasks"));
+    tasksSalves.push(taskObj);
+
+    localStorage.setItem("tasks", JSON.stringify(tasksSalves));
+}
+
+function carregarDadosLocalStorage() {
+    console.log("task", JSON.parse(localStorage.getItem("tasks")));
+}
+
 const form = document.getElementById("create-board-task-form");
 
 form.addEventListener("submit", function (evento) {
@@ -5,7 +22,7 @@ form.addEventListener("submit", function (evento) {
     createTask();
 });
 
-function createTask(){
+function createTask() {
     console.log("Tarefa criada com sucesso!");
     const nameTask = document.getElementById("nameTask");
     const etiqueta = document.getElementById("etiqueta");
@@ -14,14 +31,17 @@ function createTask(){
     const titleTask = document.createElement("h2");
     titleTask.classList.add("title-task");
     titleTask.innerHTML = nameTask.value;
+    // titleTask.innerHTML = task.nome;
 
     const etiquetaTask = document.createElement("p");
     etiquetaTask.classList.add("etiqueta-task");
     etiquetaTask.innerHTML = etiqueta.value;
+    // etiquetaTask.innerHTML = task.etiqueta;
 
     const dataTask = document.createElement("p");
     dataTask.classList.add("date-task");
-    dataTask.innerHTML = data;
+    dataTask.innerHTML = "Criado em: 21/08/2024";
+    // dataTask.innerHTML = task.data;
 
     const li = document.createElement("li");
     li.classList.add("card-task");
@@ -31,27 +51,61 @@ function createTask(){
     btnConcluir.type = "button";
     btnConcluir.classList.add("btn-concluir");
     btnConcluir.innerHTML = "Concluir";
-    
+
     const ul = document.getElementById("list-task");
     ul.appendChild(li);
     li.appendChild(titleTask);
     li.appendChild(etiquetaTask);
     li.appendChild(dataTask);
     li.appendChild(btnConcluir);
+
+    const taskObj = {
+        nome: nameTask.value,
+        etiqueta: etiqueta.value,
+        data: data
+    }
+
+    gravarDadosLocalStorage(taskObj);
+    carregarDadosLocalStorage();
 }
 
-// function concluirTask(){
-// alert("Tarefa concluída com sucesso!");
+function renderizarTarefas() {
+    const renderizar = JSON.parse(localStorage.getItem("tasks"));
+    renderizar.map((task) => {
+        console.log("Renderizar Tarefa", task.nome, task.etiqueta, task.data);
+        const titleTask = document.createElement("h2");
+        titleTask.classList.add("title-task");
+        // titleTask.innerHTML = nameTask.value;
+        titleTask.innerHTML = task.nome;
 
-// const btnConcluir = document.getElementsByClassName("btn-concluir");
-// const titleTask = document.getElementsByClassName("title-task");
+        const etiquetaTask = document.createElement("p");
+        etiquetaTask.classList.add("etiqueta-task");
+        // etiquetaTask.innerHTML = etiqueta.value;
+        etiquetaTask.innerHTML = task.etiqueta;
 
-//     console.log(btnConcluir, titleTask);
+        const dataTask = document.createElement("p");
+        dataTask.classList.add("date-task");
+        // dataTask.innerHTML = "Criado em: 21/08/2024";
+        dataTask.innerHTML = task.data;
 
-//     titleTask.classList.add("title-concluido");
+        const li = document.createElement("li");
+        li.classList.add("card-task");
 
-//     btnConcluir.style.display = "none";
-// }
+        const btnConcluir = document.createElement("button");
+        btnConcluir.addEventListener("click", concluirTask);
+        btnConcluir.type = "button";
+        btnConcluir.classList.add("btn-concluir");
+        btnConcluir.innerHTML = "Concluir";
+
+        const ul = document.getElementById("list-task");
+        ul.appendChild(li);
+        li.appendChild(titleTask);
+        li.appendChild(etiquetaTask);
+        li.appendChild(dataTask);
+        li.appendChild(btnConcluir);
+        li.appendChild(countTask);
+    })
+}
 
 function concluirTask(event) {
     alert("Tarefa concluída com sucesso!");
@@ -76,4 +130,6 @@ function concluirTask(event) {
     titleTask.classList.add("title-concluido");
 }
 
-
+window.onload = function() {
+    renderizarTarefas();
+};
