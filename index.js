@@ -3,9 +3,9 @@
 //contém: NOME, ETIQUETA e DATA
 
 const tasks = [
-    { nome: "Criar tela de Login", etiqueta: "Front-end", data: "Criado em: 21/08/2024", check: false},
-    { nome: "Criar tela de Cadastro", etiqueta: "Front-end", data: "Criado em: 21/08/2024", check: false},
-    { nome: "Criar Banco de Dados", etiqueta: "Back-end", data: "Criado em: 21/08/2024", check: false},
+    { nome: "Criar tela de Login", etiqueta: "Front-end", data: "Criado em: 21/08/2024", check: false },
+    { nome: "Criar tela de Cadastro", etiqueta: "Front-end", data: "Criado em: 21/08/2024", check: false },
+    { nome: "Criar Banco de Dados", etiqueta: "Back-end", data: "Criado em: 21/08/2024", check: false },
 ];
 
 //-----------------------------------------------------------------------------------------------
@@ -69,10 +69,10 @@ function addTaskToDOM(task) {
     const divDescricaoAbaixo = document.createElement("div");
     divDescricaoAbaixo.classList.add("descricao-abaixo");
 
-    const titleTask = document.createElement("h2");
-    if(!task.check){
+    const titleTask = document.createElement("p");
+    if (!task.check) {
         titleTask.classList.add("title-task");
-    }else{
+    } else {
         titleTask.classList.add("title-concluido");
     }
     titleTask.classList.add("title-task");
@@ -88,7 +88,7 @@ function addTaskToDOM(task) {
 
     const li = document.createElement("li");
     li.classList.add("card-task");
-    
+
     const ul = document.getElementById("list-task");
     ul.appendChild(li);
     li.appendChild(divDescricao);
@@ -96,13 +96,13 @@ function addTaskToDOM(task) {
     divDescricao.appendChild(divDescricaoAbaixo);
     divDescricaoAbaixo.appendChild(etiquetaTask);
     divDescricaoAbaixo.appendChild(dataTask);
-    
+
     // li.appendChild(titleTask);
     // li.appendChild(etiquetaTask);
     // li.appendChild(dataTask);
-    
-    
-    if(!task.check){
+
+
+    if (!task.check) {
         const btnConcluir = document.createElement("button");
         btnConcluir.addEventListener("click", concluirTask);
         btnConcluir.type = "button";
@@ -110,41 +110,47 @@ function addTaskToDOM(task) {
         btnConcluir.innerHTML = "Concluir";
 
         li.appendChild(btnConcluir);
-    }else{
-        const emote = document.createElement("span");
-        emote.classList.add("emote-concluido");
-        emote.innerHTML = "✅";
+    } else {
+        // const emote = document.createElement("span");
+        // emote.classList.add("emote-concluido");
+        // emote.innerHTML = "✅";
 
-        li.appendChild(emote);
+        const img = document.createElement("img");
+        img.classList.add("img-concluido");
+        img.src = "img/icone.svg";
+
+        li.appendChild(img);
     }
 }
 
 function renderizarTarefas() {
-    if(JSON.parse(localStorage.getItem("tasks")) === null){
+    if (JSON.parse(localStorage.getItem("tasks")) === null) {
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }
 
     const tarefasSalvas = JSON.parse(localStorage.getItem("tasks")) || [];
 
-    tarefasSalvas.forEach((task) => 
+    tarefasSalvas.forEach((task) =>
         addTaskToDOM(task)
-);
-atualizarContadorTarefas();
+    );
+    atualizarContadorTarefas();
 }
 
 function concluirTask(event) {
-    alert("Tarefa concluída com sucesso!");
-
     const btnConcluir = event.target;
     const cardTask = btnConcluir.parentElement;
 
     // Atualizar o DOM
-    const emote = document.createElement("span");
-    emote.classList.add("emote-concluido");
-    emote.innerHTML = "✅";
+    // const emote = document.createElement("span");
+    // emote.classList.add("emote-concluido");
+    // emote.innerHTML = "✅";
+
+    const img = document.createElement("img");
+    img.classList.add("img-concluido");
+    img.src = "img/icone.svg";
 
     cardTask.removeChild(btnConcluir);
-    cardTask.appendChild(emote);
+    cardTask.appendChild(img);
 
     const titleTask = cardTask.querySelector(".title-task");
     titleTask.classList.add("title-concluido");
