@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board de Tarefas</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
@@ -17,22 +17,40 @@
     <main>
         <h1>Board de Tarefas</h1>
 
-        <section id="create-board-task-section">
-            <form id="create-board-task-form">
-                <input type="text" id="nameTask" name="nameTask" class="input-create-task" aria-label="Nome da Tarefa"
-                    placeholder="Nome da Tarefa">
+        <!-- <section id="create-board-task-section"> -->
+        <form id="create-board-task-form">
+            <input type="text" id="nameTask" name="nameTask" class="input-create-task" aria-label="Nome da Tarefa"
+                placeholder="Nome da Tarefa">
 
-                <input type="text" id="etiqueta" name="etiqueta" class="input-create-task" aria-label="Etiqueta"
-                    placeholder="Etiqueta">
+            <input type="text" id="etiqueta" name="etiqueta" class="input-create-task" aria-label="Etiqueta"
+                placeholder="Etiqueta">
 
-                <button type="submit" id="add-task-btn" aria-label="Criar tarefa" class="add-task-btn">+</button>
-            </form>
-        </section>
+            <button type="submit" id="add-task-btn" aria-label="Criar tarefa" class="add-task-btn">+</button>
+        </form>
+        <!-- </section> -->
 
 
         <ul id="list-task">
-           
+            <!-- <li class="card-task">
+                <div class="task-descricao">
+                    <h2 class="title-task">Testanto</h2>
+
+                    <div class="descricao-abaixo">
+                        <p class="etiqueta-task">Front-end</p>
+
+                        <p class="date-task">Criado em 20/10/2000</p>
+                    </div>
+                </div>
+
+                <button class="btn-concluir">Concluir</button>
+            </li> -->
         </ul>
+
+        <hr>
+
+        <section id="tasks-counter-section">
+            <p><span id="completed-tasks-count"></span> tarefa Concluídas</p>
+        </section>
 
     </main>
     <script src="index.js"></script>
