@@ -4,8 +4,7 @@
 
 const tasks = [
     { nome: "Criar tela de Login", etiqueta: "Front-end", data: "Criado em: 21/08/2024", check: false },
-    { nome: "Criar tela de Cadastro", etiqueta: "Front-end", data: "Criado em: 21/08/2024", check: false },
-    { nome: "Criar Banco de Dados", etiqueta: "Back-end", data: "Criado em: 21/08/2024", check: false },
+    { nome: "Criar Banco de Dados", etiqueta: "Back-end", data: "Criado em: 21/08/2024", check: true },
 ];
 
 //-----------------------------------------------------------------------------------------------
