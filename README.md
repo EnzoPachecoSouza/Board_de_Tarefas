@@ -21,4 +21,4 @@ Este repositório contém o projeto de um **Board de Tarefas**, desenvolvido par
 
 Este projeto foi desenvolvido com o objetivo de praticar manipulação do DOM, uso do **LocalStorage**, e implementar uma interface amigável e funcional.
 
-Desafio 03 - RID: #184543
+## Desafio 03 - RID: #184543
