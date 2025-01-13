@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Garante que a altura ocupe 100% da viewport */
+    height: 100vh; 
 }
 
 h1 {
